@@ -1,29 +1,27 @@
 import java.util.Scanner;
 
 public class Uri1051{
-
     public static void main(String args[]){
-
         Scanner teclado = new Scanner(System.in);
 
-        int horaI, minI, horaF, minF, tempoI, tempoF, durTotal;
-                        
-        horaI = teclado.nextInt ();
-        minI = teclado.nextInt ();
-        horaF = teclado.nextInt ();
-        minF = teclado.nextInt ();
+        float salario, imposto;
 
-        tempoI = horaI * 60 + minI;  
-        tempoF = horaF * 60 + minF;
+        salario = teclado.nextFloat();
 
-        durTotal = tempoF - tempoI       
-
-        if (durTotal <= 0) {
-            durTotal = durTotal - 1440;
-
-            System.out.println ("O JOGO DUROU " + durTotal + " HORA(S)");  
-
+        if (salario <= 2000.0f){
+            System.out.println("Isento");
         }
-
+        else if (salario <= 3000.0f){
+            imposto = (salario - 2000.0f) * 0.08f;
+            System.out.printf("R$ %.2f\n",imposto);
+        }
+        else if (salario <= 4500.0f){
+            imposto = (salario - 3000.0f)*0.18f + 80.0f; // correspondente a 8% dos 1000,0 entre 2000 e 3000
+            System.out.printf("R$ %.2f\n",imposto);
+        }
+        else {
+            imposto = (salario - 4500.0f)*0.28f + 80.0f + 270.0f; // 80 da faixa dos 2000-3000 e 270 dos 18% da faixa entre 3000 e 4500
+            System.out.printf("R$ %.2f\n",imposto);
+        }
     }
 }

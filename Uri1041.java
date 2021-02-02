@@ -1,31 +1,33 @@
 import java.util.Scanner;
 
 public class Uri1041{
-
-    public static void main(String args[]){
-
+    public static void Main(String args[]){
         Scanner teclado = new Scanner(System.in);
+        float x, y;
 
-        float val1, val2;
-                        
-        val1 = teclado.nextFloat ();
-        val2 = teclado.nextFloat ();
-                        
-        if (val1 > 0 && val2 > 0) {
-            System.out.println ("Q1");
+        x = teclado.nextFloat();
+        y = teclado.nextFloat();
+
+        if (x > 0 && y > 0){
+            System.out.println("Q1");
         }
-        else if (val1 < 0 && val2 > 0) {
-            System.out.println ("Q2");
-        }    
-        else if (val1 < 0 && val2 < 0) {
-            System.out.println ("Q3");
-        }   
-        else if (val1 > 0 && val2 < 0) {
-            System.out.println ("Q4");
-        }       
-        else if (val1 == 0 || val2 == 0) {
-            System.out.println ("Origem");
-        }               
-        
+        else if (x < 0 && y > 0){
+            System.out.println("Q2");
+        }
+        else if (x < 0 && y < 0){
+            System.out.println("Q3");
+        }
+        else if (x > 0 && y < 0){
+            System.out.println("Q4");
+        }
+        else if (x == 0 && y != 0){
+            System.out.println("Eixo Y");
+        }
+        else if (x != 0 && y == 0){
+            System.out.println("Eixo X");
+        }
+        else {
+            System.out.println("Origem");
+        }
     }
 }

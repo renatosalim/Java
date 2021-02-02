@@ -1,29 +1,30 @@
 import java.util.Scanner;
 
 public class Uri1047{
-
     public static void main(String args[]){
-
         Scanner teclado = new Scanner(System.in);
+        int hI, mI, hF, mF;
+        int tempoI, tempoF, durTotal;
+        int hT, mT;
 
-        int horaI, minI, horaF, minF, tempoI, tempoF, durTotal;
-                        
-        horaI = teclado.nextInt ();
-        minI = teclado.nextInt ();
-        horaF = teclado.nextInt ();
-        minF = teclado.nextInt ();
+        hI = teclado.nextInt();
+        mI = teclado.nextInt();
+        hF = teclado.nextInt();
+        mF = teclado.nextInt();
 
-        tempoI = horaI * 60 + minI;  
-        tempoF = horaF * 60 + minF;
+        // converter tudo para minutos
+        tempoI = hI * 60 + mI;
+        tempoF = hF * 60 + mF;
 
-        durTotal = tempoF - tempoI       
+        durTotal = tempoF - tempoI;
 
-        if (durTotal <= 0) {
-            durTotal = durTotal - 1440;
-
-            System.out.println ("O JOGO DUROU " + durTotal + " HORA(S)");  
-
+        if (durTotal <= 0){
+            durTotal = durTotal + 24*60; // somo 24h em minutos para mostrar que o dia "virou"
         }
 
+        hT = durTotal / 60;
+        mT = durTotal % 60;
+
+        System.out.println("O JOGO DUROU "+ hT +" HORA(S) E "+ mT +" MINUTO(S)");
     }
 }
